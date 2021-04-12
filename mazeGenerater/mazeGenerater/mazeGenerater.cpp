@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "olcConsoleEngine.h"
 
 int main()
 {

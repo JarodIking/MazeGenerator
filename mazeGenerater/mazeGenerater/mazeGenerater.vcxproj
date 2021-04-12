@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="mazeGenerater.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="olcConsoleEngine.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
