@@ -2,11 +2,78 @@
 //
 
 #include <iostream>
+#include <stack>
 #include "olcConsoleEngine.h"
+
+class mazeGenerator : public olcConsoleGameEngine {
+    public mazeGenerator() {
+        m_s AppName = L"MAZE";
+    }
+
+private:
+    int mazeWidth;
+    int maxeHeight;
+    int maze;
+
+    enum {
+        CELL_PATH_N = 0x01;
+        CELL_PATH_E = 0x02;
+        CELL_PATH_S = 0x04;
+        CELL_PATH_W = 0x08;
+        CELL_VISITED = 0x10;
+
+    };
+
+    int visitedCells;
+
+    stack<pair<int, int>> stack;
+
+
+protected:
+    virtual bool OnUserCreate() {
+        //initialize alogrithm
+        mazeWidth = 40;
+        mazeHeight = 25;
+
+        //allocate maze memory
+        maze = new int[mazeWidth * mazeHeight];
+        memset(m_maze, 0x00, mazeWidth * mazeHeight);
+        
+        //push cells to stack
+        stack.push(make_pair(0, 0));
+        maze[0] = CELL_VISITED;
+        visitedCells = 1;
+
+        return true;
+    }
+
+    virtual bool onUserUpdate(float fElppasedTime) {
+
+        // draw stuff
+
+        Fill(0, 0, screenWidth, screenHeight, "L");
+
+            for (int x = 0; x < mazeWidth; x++) {
+                for (int y = 0; y < mazeHeight; y++) {
+                    if (maze[y * mazeWidth + x] & CELL_VISITED) {
+                        Draw(x, y, PIXEL_SOLID, FG_WHITE);
+                    }
+                    else {
+                        Draw(x, y, PIXEL_SOLID, FG_BLUE);
+                    }
+                }
+            }
+        
+        return true;
+    }
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    //create maze and run
+    mazeGenerator game;
+    game.ConstructConsole(160, 100, 8, 8);
+    game.start();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
