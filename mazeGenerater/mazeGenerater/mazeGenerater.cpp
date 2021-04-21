@@ -53,7 +53,7 @@ protected:
         return true;
     }
 
-    virtual bool onUserUpdate(float fElppasedTime) {
+     bool OnUserUpdate(float fElppasedTime) override {
 
         // draw stuff
 
