@@ -1,2 +1,6 @@
 ﻿  mazeGenerater.cpp
-  mazeGenerater.vcxproj -> E:\git clones\MazeGenerator\mazeGenerater\Debug\mazeGenerater.exe
+E:\git clones\MazeGenerator\mazeGenerater\mazeGenerater\mazeGenerater.cpp(80,19): error C2259: 'mazeGenerator': cannot instantiate abstract class
+E:\git clones\MazeGenerator\mazeGenerater\mazeGenerater\mazeGenerater.cpp(13): message : see declaration of 'mazeGenerator'
+E:\git clones\MazeGenerator\mazeGenerater\mazeGenerater\mazeGenerater.cpp(80,19): message : due to following members:
+E:\git clones\MazeGenerator\mazeGenerater\mazeGenerater\mazeGenerater.cpp(80,19): message : 'bool olcConsoleGameEngine::OnUserUpdate(float)': is abstract
+E:\git clones\MazeGenerator\mazeGenerater\mazeGenerater\olcConsoleEngine.h(966): message : see declaration of 'olcConsoleGameEngine::OnUserUpdate'
